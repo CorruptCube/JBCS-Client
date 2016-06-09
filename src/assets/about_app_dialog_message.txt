@@ -1,0 +1,23 @@
+If you experience any issues with the application such as unexpected crashing, please contact the 
+developer via the email link made available by the Google Play Store.  
+Thank you and enjoy.
+\n\n
+You can find the server on GitHub at the following link.
+\n
+https://github.com/CorruptCube/Java-Barcode-Scanner-Server
+\n\n
+Updates:
+\u2022
+Updated client commands to work with the updated server.
+\u2022
+Shortened the toast message at main activity.
+\u2022
+Added support for marshmallow.
+\n\n
+Features:
+\u2022
+Scan barcodes and send the data to a server.
+\u2022
+Built in network client to connect to server.
+\n\n
+Tap outside dialog window or press back button on device to close this message.
