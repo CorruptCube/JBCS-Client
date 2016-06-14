@@ -24,7 +24,7 @@
 	<string name="use_network_client">Use Network Client</string>
 	<string name="save">Save</string>
 	<string name="check_config">Check Config</string>
-	<string name="connection_error_message">Error: The data faild to transmit. Check to make sure your network and client settings are correct and, the server is running.</string>
+	<string name="connection_error_message">Error: The data faild to transmit. Check to make sure your network and client settings are correct, and the server is running.</string>
 	
 	
 	
