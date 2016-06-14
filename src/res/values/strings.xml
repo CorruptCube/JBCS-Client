@@ -16,15 +16,15 @@
 	
 	
 	<!-- Network Client preferences -->
-	<string name="client_netwwork_information">Client netwwork information</string>
-	<string name="server_ip_address">Server IP address</string>
+	<string name="client_netwwork_information">Client network information</string>
+	<string name="server_ip_address">Server IP Address</string>
 	<string name="address">Address</string>
 	<string name="port_number">Port Number</string>
 	<string name="port">Port</string>
-	<string name="use_network_client">Use network client</string>
+	<string name="use_network_client">Use Network Client</string>
 	<string name="save">Save</string>
 	<string name="check_config">Check Config</string>
-	<string name="connection_error_message">Error: The data faild to transmit. Check to make sure your network and client settings are correct and the server is running.</string>
+	<string name="connection_error_message">Error: The data faild to transmit. Check to make sure your network and client settings are correct and, the server is running.</string>
 	
 	
 	
