@@ -14,7 +14,7 @@ Shortened the toast message at main activity.
 \u2022
 Added support for marshmallow.
 \u2022
-Fixed null bug on existing barcode object  when a new scan is canceled.
+Fixed null bug on existing barcode object when a new scan is canceled.
 \n\n
 Features:
 \u2022

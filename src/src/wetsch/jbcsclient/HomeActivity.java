@@ -158,7 +158,7 @@ public class HomeActivity extends Activity implements OnClickListener, JBCSClien
 			clientMessageDialog.setMessage(getString(R.string.connection_error_message));
 			clientMessageDialog.show();
 		}else{
-				Toast.makeText(this,(String)clientMessage, Toast.LENGTH_SHORT).show();;
+			Toast.makeText(this,(String)clientMessage, Toast.LENGTH_SHORT).show();;
 		}
 	}
 
