@@ -21,14 +21,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /*
- * Last modified 6/8/2016
+ * Last modified 6/14/2016
+ * Fixed null bug when resending to server after new scan is canceled.
  */
 
 public class HomeActivity extends Activity implements OnClickListener, JBCSClientListener{
 
 	private AlertDialog clientMessageDialog;//Message dialog for the network client.
 	private Button btnScan;//starts barcode scanner
-	private Button btnResend;//Resends data to server.
+	private Button btnResend;//Resends barcode data to server.
 	private TextView formatTxt, contentTxt;//Holds the barcode format type.
 	private TextView netClientStatusInfo;//holds client status.
 	private String clientHostAddress;//Connecting host address.
@@ -167,9 +168,9 @@ public class HomeActivity extends Activity implements OnClickListener, JBCSClien
 		try{
 			IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
 			if (scanningResult != null) {
-				bcData = new BarCodeData(scanningResult.getFormatName(), scanningResult.getContents());
-				if(bcData.getBarcodeType().equals(null) || bcData.getBarcodeValue().equals(null))
+				if(scanningResult.getFormatName().equals(null) || scanningResult.getContents().equals(null))
 					return;
+				bcData = new BarCodeData(scanningResult.getFormatName(), scanningResult.getContents());
 				formatTxt.setText("FORMAT: " + bcData.getBarcodeType());
 				contentTxt.setText("CONTENT: " + bcData.getBarcodeValue());
 				if(!useClient)
