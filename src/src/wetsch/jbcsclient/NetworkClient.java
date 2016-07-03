@@ -7,11 +7,8 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.concurrent.locks.ReentrantReadWriteLock.ReadLock;
 
-import android.R.menu;
 import android.os.AsyncTask;
-import android.os.Message;
 import android.util.Log;
 
 /*
