@@ -1,38 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+ 	android:id="@+id/network_client_pref"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    tools:context=".NetworkClientPreferences" >
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="@string/client_netwwork_information" />
+        android:text="@string/client_netwwork_information"
+        android:textColor="@android:color/white" />
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/server_ip_address" />
+        android:text="@string/server_ip_address"
+        android:textColor="@android:color/white"/>
 
     <EditText
         android:id="@+id/edt_net_client_host_IP"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:hint="@string/address"
-        android:inputType="phone" />
+        android:inputType="phone" 
+        android:textColor="@android:color/white"
+        android:textCursorDrawable="@drawable/edittextcursor"
+        android:background="@drawable/edittextdrawable" />
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/port_number" />
+        android:text="@string/port_number"
+        android:textColor="@android:color/white" />
 
     <EditText
         android:id="@+id/edt_net_client_port"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:hint="@string/port"
-        android:inputType="number" />
+        android:inputType="number"
+        android:textColor="@android:color/white"
+        android:textCursorDrawable="@drawable/edittextcursor"
+        android:background="@drawable/edittextdrawable" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,28 +54,46 @@
         <ToggleButton
             android:id="@+id/tgl_net_client_use"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white" />
 
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/use_network_client" />
+            android:text="@string/use_network_client"
+            android:textColor="@android:color/white" />
     </LinearLayout>
-        <LinearLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
-    <Button
-        android:id="@+id/btn_save_pref"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/save" />
-    <Button
-        android:id="@+id/btn_check_config"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/check_config" />
-    </LinearLayout>
-    
 
+        <Button
+            android:id="@+id/btn_save_pref"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/save" 
+            android:textColor="@android:color/white"/>
+
+        <Button
+            android:id="@+id/btn_check_config"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/check_config" 
+            android:textColor="@android:color/white"/>
+
+        <Button
+            android:id="@+id/btn_register_device"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/register_device" 
+            android:textColor="@android:color/white"/>
+    </LinearLayout>
+    <TextView
+        	android:id="@+id/tv_install_id"
+            android:layout_width="fill_parent"
+            android:text="@string/SID_example"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white" />
 </LinearLayout>

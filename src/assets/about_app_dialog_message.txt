@@ -8,18 +8,22 @@ https://github.com/CorruptCube/Java-Barcode-Scanner-Server
 \n\n
 Updates:
 \u2022
-Updated client commands to work with the updated server.
+Added device to server registration.
 \u2022
-Shortened the toast message at main activity.
-\u2022
-Added support for marshmallow.
-\u2022
-Fixed null bug on existing barcode object when a new scan is canceled.
+Added menu item under net client settings to send a test barcode value.
 \n\n
 Features:
 \u2022
 Scan barcodes and send the data to a server.
 \u2022
 Built in network client to connect to server.
+\u2022
+Send test barcode value to server.  
+The feature can be found under the net client settings menu.
+\u2022
+Device to server registration.  Be sure to register the device, 
+or you will not be able to send barcode data to the server.  
+If the server is not enforcing registration on devices, the device 
+may send it's barcode data with out being registered with the server.
 \n\n
 Tap outside dialog window or press back button on device to close this message.
