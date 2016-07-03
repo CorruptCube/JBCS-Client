@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/nc_menuitem_Send_test_Vaue"
+         android:title="@string/nc_menu_send_barcode_test_value"
+          android:orderInCategory="1"
+           android:visible="true"
+            android:enabled="true">
+    </item>
+</menu>
