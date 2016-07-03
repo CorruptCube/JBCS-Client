@@ -11,18 +11,22 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 /*
- * Last modified 6/14/2016
- * Fixed null bug when resending to server after new scan is canceled.
+ * Last modified 7/1/2016
+ * Added client message types to indicate how to display the message to the user.
  */
 
 public class HomeActivity extends Activity implements OnClickListener, JBCSClientListener{
@@ -30,7 +34,7 @@ public class HomeActivity extends Activity implements OnClickListener, JBCSClien
 	private AlertDialog clientMessageDialog;//Message dialog for the network client.
 	private Button btnScan;//starts barcode scanner
 	private Button btnResend;//Resends barcode data to server.
-	private TextView formatTxt, contentTxt;//Holds the barcode format type.
+	private TextView formatTxt, contentTxt;//Holds the barcode data.
 	private TextView netClientStatusInfo;//holds client status.
 	private String clientHostAddress;//Connecting host address.
 	private int clientHostPort;//Connecting port number.
@@ -46,14 +50,41 @@ public class HomeActivity extends Activity implements OnClickListener, JBCSClien
 		setContentView(R.layout.activity_home);
 		activitySetup();
 		setupClientMessageDialog();
+		Installation.checkVersion(this);
+
+
+		formatTxt.setText("CODE_13");
+		contentTxt.setText("0123456789");
+		bcData = new BarCodeData("CODE_13", "0123456789");
+
 		activityStarted = true;
 	}
+
 	//Inflates the option menu.
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.home, menu);
 		return true;
 	}
+	
+	//Handles the menu items selected.
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		Intent intent = null;
+		switch (item.getItemId()) {
+		case R.id.action_net_client_settings:
+			intent = new Intent(HomeActivity.this, NetworkClientPreferences.class);
+			startActivity(intent);
+			break;
+		case R.id.action_about:
+			intent = new Intent(HomeActivity.this, AboutApplicationActivity.class);
+			startActivity(intent);
+			
+			break;
+		}
+		return true;
+	}
+
 	
 	//Setup activity.
 	private void activitySetup(){
@@ -65,7 +96,25 @@ public class HomeActivity extends Activity implements OnClickListener, JBCSClien
 		formatTxt = (TextView)findViewById(R.id.scan_format);
 		contentTxt = (TextView)findViewById(R.id.scan_content);
 		loadPreferences();
+		SetBackground();
+
 	}
+	
+	//apply Background
+	private void SetBackground(){
+
+
+		DisplayMetrics metrics = this.getResources().getDisplayMetrics();
+		int h = metrics.heightPixels;
+        GradientDrawable gd = new GradientDrawable();
+        gd.setColors(new int[]{Color.argb(255, 0, 0, 255), Color.argb(255, 0, 0, 0)});
+        gd.setGradientType(GradientDrawable.RADIAL_GRADIENT);
+        gd.setGradientRadius(h/2);
+        gd.setGradientCenter(0.5f,0.5f);
+        LinearLayout l = (LinearLayout) findViewById(R.id.activity_home);
+        l.setBackground(gd);
+	}       
+
 	
 	//Loads the shared preferences.
 	private void loadPreferences(){
@@ -103,32 +152,16 @@ public class HomeActivity extends Activity implements OnClickListener, JBCSClien
 		scanIntegrator.initiateScan();
 	}
 
-	//Handles the menu items selected.
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		Intent intent = null;
-		switch (item.getItemId()) {
-		case R.id.action_net_client_settings:
-			intent = new Intent(HomeActivity.this, NetworkClientPreferences.class);
-			startActivity(intent);
-			break;
-		case R.id.action_about:
-			intent = new Intent(HomeActivity.this, AboutApplicationActivity.class);
-			startActivity(intent);
-			
-			break;
-		}
-		return true;
-	}
 	
 	//Sends the barcode data to the server.
 	private void sendToServer(BarCodeData data){
 		if(!useClient)
 			return;
 		if(clientHostAddress.length() > 0 && clientHostPort != 0){
-			String serverCommand = "SEND_BARCODE_DATA";
-			String[] message = new String[]{serverCommand, data.getBarcodeType(), data.getBarcodeValue()};
-			NetworkClient client = new NetworkClient(clientHostAddress, clientHostPort, this);
+			String serverCommand = NetworkClient.ServerCommands.sendBarcodeData;
+			String deviceId = Installation.id(this);
+			String[] message = new String[]{serverCommand, deviceId , data.getBarcodeType(), data.getBarcodeValue()};
+			NetworkClient client = new NetworkClient(clientHostAddress, clientHostPort, this, this);
 			client.execute(message);
 		}
 	}
@@ -154,12 +187,19 @@ public class HomeActivity extends Activity implements OnClickListener, JBCSClien
 	
 	@Override
 	public void onJbcsClientFinish(Object clientMessage) {
-		if(clientMessage == null){
-			clientMessageDialog.setMessage(getString(R.string.connection_error_message));
+		Object[] message =  (Object[]) clientMessage;
+		int messageType = (int) message[0];
+		String messageString = (String) message[1];
+		if(messageType == NetworkClient.clientErrorDialogMessage){
+			clientMessageDialog.setTitle("Client Error");
+			clientMessageDialog.setMessage(messageString);
 			clientMessageDialog.show();
-		}else{
-			Toast.makeText(this,(String)clientMessage, Toast.LENGTH_SHORT).show();;
-		}
+		}else if(messageType == NetworkClient.clientInfoDialogMessage){
+			clientMessageDialog.setTitle("Client Message");
+			clientMessageDialog.setMessage((String)messageString);
+			clientMessageDialog.show();
+		}else if(messageType == NetworkClient.clientInfoToastMessage)
+			Toast.makeText(this,(String)messageString, Toast.LENGTH_SHORT).show();;
 	}
 
 	//Handle the result collected by scanner.
@@ -183,4 +223,5 @@ public class HomeActivity extends Activity implements OnClickListener, JBCSClien
 		}
 		super.onActivityResult(requestCode, resultCode, data);
 	}
+	
 }
