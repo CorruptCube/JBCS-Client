@@ -52,10 +52,10 @@ public class HomeActivity extends Activity implements OnClickListener, JBCSClien
 		setupClientMessageDialog();
 		Installation.checkVersion(this);
 
-
-		formatTxt.setText("CODE_13");
-		contentTxt.setText("0123456789");
-		bcData = new BarCodeData("CODE_13", "0123456789");
+		//Debuging code to send barcode from main activity without scanning.
+		//formatTxt.setText("CODE_13");
+		//contentTxt.setText("0123456789");
+		//bcData = new BarCodeData("CODE_13", "0123456789");
 
 		activityStarted = true;
 	}

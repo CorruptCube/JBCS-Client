@@ -111,39 +111,39 @@ public class NetworkClient extends AsyncTask<String[], Integer, Object[]>{
 			
 			switch (data[0]) {
 				case ServerCommands.sendBarcodeData:
-					out.println(data[0]);
+					out.println(data[0]);//Command
 					out.flush();
 					String drsStatus = in.readLine();
 					if(drsStatus.equals(ServerCommands.drsEnabled)){
-						out.println(data[1]);
+						out.println(data[1]);//Devie ID
 						out.flush();
 						String registrationStatus = in.readLine();
 						if(registrationStatus.equals(ServerCommands.unregistered))
 							serverResponce = new Object[]{clientInfoDialogMessage, context.getString(R.string.unregistered_device_message)};
 						else if(registrationStatus.equals(ServerCommands.registered)){
-							out.println(data[2]);
-							out.println(data[3]);
+							out.println(data[2]);//BC type
+							out.println(data[3]);//Bc data
 							out.flush();
 							if(in.readLine().equals(ServerCommands.dataReceived))
 								serverResponce = new Object[]{clientInfoToastMessage, context.getString(R.string.data_received_message)};
 						}
 					}else if(drsStatus.equals(ServerCommands.drsDisabled)){
-						out.println(data[2]);
-						out.println(data[3]);
+						out.println(data[2]);//BC type
+						out.println(data[3]);//BC data
 						out.flush();
 						if(in.readLine().equals(ServerCommands.dataReceived))
 							serverResponce = new Object[]{clientInfoToastMessage, context.getString(R.string.data_received_message)};
 					}
 					break;
 			case ServerCommands.checkConnection:
-				out.println(data[0]);
+				out.println(data[0]);//Command
 				out.flush();
 				if(in.readLine().equals(ServerCommands.connectionOk))
 					serverResponce = new Object[]{clientInfoDialogMessage, context.getString(R.string.connection_ok_message)};
 				break;
 			case ServerCommands.registerDevice:
-				out.println(data[0]);
-				out.println(data[1]);
+				out.println(data[0]);//Command
+				out.println(data[1]);//Device ID
 				out.flush();
 				publishProgress(pdWaitForServer);
 				String message = in.readLine();
