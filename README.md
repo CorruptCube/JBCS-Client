@@ -7,6 +7,12 @@ pushing version 2.1
 */
 
 /*
+7/24/2016
+Project web site: http://wetschk.com/index.php?id=project-jbcs-client
+*/
+
+
+/*
 7/3/2016 
 The client version must match the server version that you are using.
 */
