@@ -8,7 +8,7 @@ pushing version 2.1
 
 /*
 7/24/2016
-Project web site: http://wetschk.com/index.php?id=project-jbcs-client
+Project page: http://wetschk.com/index.php?id=project-jbcs-client
 */
 
 
