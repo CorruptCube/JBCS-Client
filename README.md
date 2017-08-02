@@ -1,5 +1,6 @@
 # JBCS-Client
 The Android client for the java barcode scanner server (JBCS server)
+
 /*
 8/2/2017 
 Update to version 2.2.  
