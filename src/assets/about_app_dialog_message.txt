@@ -8,9 +8,7 @@ https://github.com/CorruptCube/Java-Barcode-Scanner-Server
 \n\n
 Updates:
 \u2022
-Added device to server registration.
-\u2022
-Added menu item under net client settings to send a test barcode value.
+Updated API Level.
 \n\n
 Features:
 \u2022

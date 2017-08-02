@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">JBCS-Client</string>
-    <string name="app_version">2.1</string>
-    <string name="action_net_client_settings">Net Client Settings</string>
-    <string name="action_about">About</string>
-	<string name="yes">Yes</string>
-	<string name="no">No</string>
-	<string name="connect_to">Connect to:</string>
+    <string name="app_name" translatable="false">JBCS-Client</string>
+    <string name="app_version" translatable="false">2.2</string>
+    <string name="action_net_client_settings" translatable="false">Net Client Settings</string>
+    <string name="action_about" translatable="false">About</string>
+	<string name="yes" translatable="false">Yes</string>
+	<string name="no" translatable="false">No</string>
+	<string name="connect_to" translatable="false">Connect to:</string>
 	
 	
 	<!-- buttons -->
-	<string name="btn_scan">Start Scan</string>
-	<string name="btn_resend">Resend to Server</string>
-	<string name="btn_dismiss">Dismiss</string>
-	<string name="btn_ready">Ready</string>
-	<string name="btn_Cancel">Cancel</string>
+	<string name="btn_scan" translatable="false">Start Scan</string>
+	<string name="btn_resend" translatable="false">Resend to Server</string>
+	<string name="btn_dismiss" translatable="false">Dismiss</string>
+	<string name="btn_ready" translatable="false">Ready</string>
+	<string name="btn_Cancel" translatable="false">Cancel</string>
 	
 	
 	<!-- Network Client preferences -->
-	<string name = "nc_menu_send_barcode_test_value">Send Test Barcode Value</string>
-	<string name="SID_example">SID:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</string>
-	<string name="client_netwwork_information">Client network information</string>
-	<string name="server_ip_address">Server IP Address</string>
-	<string name="address">Address</string>
-	<string name="port_number">Port Number</string>
-	<string name="port">Port</string>
-	<string name="use_network_client">Use Network Client</string>
-	<string name="save">Save</string>
-	<string name="check_config">Check Config</string>
-	<string name="register_device">Register Device</string>
-	<string name="register_device_dialog_title">Register Your Device</string>
-	<string name="register_device_dialog_message">Press ready when you are ready to send the registration ID.</string>
-	<string name="connection_error_message">Error: The data faild to transmit. Check to make sure your network and client settings are correct, and the server is running.</string>
-	<string name="connection_ok_message">Connection to the server is ok.</string>
-	<string name="device_rejected_message">Your device was rejected by the server.</string>
-	<string name="Device_registered_message">Your device was registered with the server successfully.</string>
-	<string name="registration_request_inactive_message">The registration system is not accepting new devices at this time.</string>
-	<string name="data_received_message">Data received by server.</string>
-	<string name="unregistered_device_message">Your device is not registered with the server.  You must register your device first.</string>
-	<string name="device_already_registered_message">Your device is already registered with the server.</string>
+	<string name = "nc_menu_send_barcode_test_value" translatable="false">Send Test Barcode Value</string>
+	<string name="SID_example" translatable="false">SID:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</string>
+	<string name="client_netwwork_information" translatable="false">Client network information</string>
+	<string name="server_ip_address" translatable="false">Server IP Address</string>
+	<string name="address" translatable="false">Address</string>
+	<string name="port_number" translatable="false">Port Number</string>
+	<string name="port" translatable="false">Port</string>
+	<string name="use_network_client" translatable="false">Use Network Client</string>
+	<string name="save" translatable="false">Save</string>
+	<string name="check_config" translatable="false">Check Config</string>
+	<string name="register_device" translatable="false">Register Device</string>
+	<string name="register_device_dialog_title" translatable="false">Register Your Device</string>
+	<string name="register_device_dialog_message" translatable="false">Press ready when you are ready to send the registration ID.</string>
+	<string name="connection_error_message" translatable="false">Error: The data faild to transmit. Check to make sure your network and client settings are correct, and the server is running.</string>
+	<string name="connection_ok_message" translatable="false">Connection to the server is ok.</string>
+	<string name="device_rejected_message" translatable="false">Your device was rejected by the server.</string>
+	<string name="Device_registered_message" translatable="false">Your device was registered with the server successfully.</string>
+	<string name="registration_request_inactive_message" translatable="false">The registration system is not accepting new devices at this time.</string>
+	<string name="data_received_message" translatable="false">Data received by server.</string>
+	<string name="unregistered_device_message" translatable="false">Your device is not registered with the server.  You must register your device first.</string>
+	<string name="device_already_registered_message" translatable="false">Your device is already registered with the server.</string>
 </resources>
